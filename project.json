@@ -1,0 +1,49 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/app.js",
+
+        "src/utils/ColorUtils.js",
+
+        "src/app/ApplicationFacade.js",
+        "src/consts/commands/ApplicationCommands.js",
+        "src/consts/notifications/ApplicationNotification.js",
+        "src/consts/notifications/ControlsNotification.js",
+        "src/consts/notifications/HeaderNotification.js",
+        "src/consts/notifications/OrderNotification.js",
+        "src/consts/notifications/SlotsNotification.js",
+
+        "src/app/controller/commands/StartupCommand.js",
+        "src/app/controller/commands/ReadyCommand.js",
+        "src/app/controller/commands/prepare/PrepareControllerCommand.js",
+        "src/app/controller/commands/prepare/PrepareModelCommand.js",
+        "src/app/controller/commands/prepare/PrepareViewCommand.js",
+
+        "src/app/view/ApplicationMediator.js",
+        "src/app/view/mediators/HeaderMediator.js",
+        "src/app/view/mediators/SlotsMediator.js",
+
+        "src/app/view/components/Header.js",
+        "src/app/view/components/HelloWorlds.js",
+
+        "src/app/model/proxy/ApplicationProxy.js",
+        "src/app/model/proxy/UserProxy.js",
+
+        "src/app/model/vos/UserVO.js",
+        "src/app/model/vos/ApplicationVO.js"
+
+
+    ]
+}

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="PureMVC" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/frameworks/vendor/puremvc.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/frameworks/vendor/puremvc.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
