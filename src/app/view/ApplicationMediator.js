@@ -5,8 +5,8 @@
     ///////////////////////////////
     //    PRIVATE VARIABLE       //
     ///////////////////////////////
-    var that = null;
-    var stage = null;
+    var _that = null;
+    var _stage = null;
     /**
      * @class app.view.mediators.ApplicationMediator
      * @extends puremvc.Mediator
@@ -18,7 +18,10 @@
             name: 'app.view.mediators.ApplicationMediator',
             parent: puremvc.Mediator,
             constructor: function(stage) {
-                puremvc.Mediator.prototype.constructor.call(this, app.view.mediators.ApplicationMediator.NAME, stage);
+                puremvc.Mediator.prototype.constructor.call(this,
+                    app.view.mediators.ApplicationMediator.NAME,
+                    stage
+                );
             }
         },
 
@@ -30,9 +33,7 @@
                     ApplicationNotification.PREPARE
                 ,	ApplicationNotification.INITIALIZED
                 ,	ApplicationNotification.ADD_VIEW_COMPONENT
-                ,	ApplicationNotification.ADD_FLASH_COMPONENT
                 ,	ApplicationNotification.REMOVE_VIEW_COMPONENT
-                ,	ApplicationNotification.REMOVE_FLASH_COMPONENT
                 ];
             },
 
@@ -43,23 +44,23 @@
                 var name = note.getName();
                 switch (name) {
                     case ApplicationNotification.PREPARE: 					break;
-                    case ApplicationNotification.INITIALIZED: 	 			stage.initialized(); break;
+                    case ApplicationNotification.INITIALIZED: 	 			_stage.initialized();       break;
 
-                    case ApplicationNotification.ADD_VIEW_COMPONENT: 		stage.addChild(body); 		break;
-                    case ApplicationNotification.REMOVE_VIEW_COMPONENT: 	stage.removeChild(body); 	break;
+                    case ApplicationNotification.ADD_VIEW_COMPONENT: 		_stage.addChild(body); 		break;
+                    case ApplicationNotification.REMOVE_VIEW_COMPONENT: 	_stage.removeChild(body); 	break;
                 }
             },
 
             onRegister: function () {
-                that = this;
-                stage = this.viewComponent;
-                cc.director.runScene( stage );
+                _that = this;
+                _stage = this.viewComponent;
+                cc.director.runScene( _stage );
                 SetupListeners();
             },
 
             onRemove: function () {
-                that = null;
-                stage = null;
+                _that = null;
+                _stage = null;
                 this.setViewComponent(null);
             }
         },

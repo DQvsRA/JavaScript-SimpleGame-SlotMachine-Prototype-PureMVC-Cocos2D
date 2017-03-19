@@ -1,28 +1,26 @@
 /**
- * Created by dqvsra on 3/16/17.
- */
-/**
- * Created by dqvsra on 3/16/17.
+ * Created by dqvsra on 3/19/17.
  */
 (function () {
     ///////////////////////////////
     //    PRIVATE VARIABLE       //
     ///////////////////////////////
-    var slots = null;
+    var _that = null;
+    var _footer = null;
 
     /**
-     * @class app.view.mediators.SlotsMediator
+     * @class app.view.mediators.FooterMediator
      * @extends puremvc.Mediator
      */
     puremvc.define
     (
         // CLASS INFO
         {
-            name: 'app.view.mediators.SlotsMediator',
+            name: 'app.view.mediators.FooterMediator',
             parent: puremvc.Mediator,
             constructor: function(viewComponent) {
                 puremvc.Mediator.prototype.constructor.call(this,
-                    app.view.mediators.SlotsMediator.NAME,
+                    app.view.mediators.FooterMediator.NAME,
                     viewComponent
                 );
             }
@@ -32,39 +30,46 @@
         {
             /** @override */
             listNotificationInterests: function () {
+                console.log("> \t\t\t| FooterMediator > Register Notifications")
                 return [
-
+                    FooterNotification.UNLOCK
                 ];
             },
 
             /** @override */
             handleNotification: function (note) {
-                //console.log("ApplicationMediator note:", note);
-                var body = note.getBody();
-                var type = note.getType();
                 var name = note.getName();
+                console.log("> FooterMediator -> Notification: ", note);
                 switch (name) {
+                    case FooterNotification.UNLOCK: _footer.unlock(); break;
                 }
             },
 
             onRegister: function () {
-                slots = this.viewComponent;
-                this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, slots );
+                _that = this;
+                _footer = this.viewComponent;
+                cc.eventManager.addCustomListener(FooterEvents.SPIN_BUTTON_TOUCHED, Handle_SpinButton_Touched);
+                this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, _footer );
             },
 
             onRemove: function () {
-                slots = null;
                 this.setViewComponent(null);
             }
         },
 
         {
-            NAME: 'SlotsMediator'
+            NAME: 'FooterMediator'
         }
     );
 
     ///////////////////////////////
     //    PRIVATE METHODS        //
     ///////////////////////////////
+
+    function Handle_SpinButton_Touched(e) {
+        trace("> FooterMediator -> Handle spin button");
+        _footer.lock();
+        _that.sendNotification( ReelsNotification.SPIN );
+    }
 
 })();

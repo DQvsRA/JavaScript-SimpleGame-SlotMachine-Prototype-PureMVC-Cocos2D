@@ -73,7 +73,7 @@ cc.game.onStart = function(){
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
         window.trace = console.log;
-        app.ApplicationFacade.getInstance(app.ApplicationFacade.NAME).startup(new cc.Scene());
+        app.ApplicationFacade.getInstance(app.ApplicationFacade.NAME).startup(new App());
     }, this);
 };
 cc.game.run();

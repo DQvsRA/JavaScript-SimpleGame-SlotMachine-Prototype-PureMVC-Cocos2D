@@ -21,15 +21,14 @@
             initializeMacroCommand: function () {
                 var Commands = app.controller.commands;
                 var PrepareCommands = Commands.prepare;
-                console.log("> PureMVC -> Startup - Initialize MacroCommand");
+                console.log("> PureMVC -> Startup - Initialize Startup MacroCommand");
                 // add the PrepareControllerCommand- it will register Commands with the Facade
                 this.addSubCommand(PrepareCommands.PrepareControllerCommand);
                 // add the PrepareModelCommand- it will register Proxies with the Facade
                 this.addSubCommand(PrepareCommands.PrepareModelCommand);
                 // add the SetupViewsCommand- it will register Mediators with the Facade
                 this.addSubCommand(PrepareCommands.PrepareViewCommand);
-
-                this.addSubCommand(Commands.ReadyCommand);
+                this.addSubCommand(PrepareCommands.PrepareCompleteCommand);
             },
             execute: function (note) {
                 puremvc.MacroCommand.prototype.execute.call(this, note);

@@ -5,20 +5,22 @@
     ///////////////////////////////
     //    PRIVATE VARIABLE       //
     ///////////////////////////////
-    var _header = null;
+    var _that = null;
+    var _slots = null;
+
     /**
-     * @class app.view.mediators.HeaderMediator
+     * @class app.view.mediators.ReelsMediator
      * @extends puremvc.Mediator
      */
     puremvc.define
     (
         // CLASS INFO
         {
-            name: 'app.view.mediators.HeaderMediator',
+            name: 'app.view.mediators.ReelsMediator',
             parent: puremvc.Mediator,
             constructor: function(viewComponent) {
                 puremvc.Mediator.prototype.constructor.call(this,
-                    app.view.mediators.HeaderMediator.NAME,
+                    app.view.mediators.ReelsMediator.NAME,
                     viewComponent
                 );
             }
@@ -28,39 +30,43 @@
         {
             /** @override */
             listNotificationInterests: function () {
-                console.log("> \t\t\t| HeaderMediator > Register Notifications")
                 return [
-                    HeaderNotification.SET_SCORE
-                ,	HeaderNotification.SET_GAMES
-                ,	HeaderNotification.ENABLE_ORDER_BUTTON
-                ,	HeaderNotification.DISABLE_ORDER_BUTTON
+                    ReelsNotification.SPIN
+                ,	ReelsNotification.RESET
+                ,	ReelsNotification.SHUFFLE
                 ];
             },
 
             /** @override */
             handleNotification: function (note) {
+                //console.log("ApplicationMediator note:", note);
+                var body = note.getBody();
+                var type = note.getType();
                 var name = note.getName();
-                console.log("> HeaderMediator -> Notification: ", note);
                 switch (name) {
-                    case HeaderNotification.SET_SCORE: 				_header.setScore( note.getBody() ); 		break;
-                    case HeaderNotification.SET_GAMES: 		        _header.setGames( note.getBody() ); 	break;
-                    // case HeaderNotification.ENABLE_ORDER_BUTTON: 	_header.orderButton.enabled = true; 				break;
-                    // case HeaderNotification.DISABLE_ORDER_BUTTON: 	_header.orderButton.enabled = false; 			break;
+                    case ReelsNotification.SPIN:
+                        trace("> ReelsMediator -> handleNotification : DO SPIN");
+                        setTimeout(function () {
+                            _that.sendNotification( FooterNotification.UNLOCK );
+                        }, 2000);
+                        break;
                 }
             },
 
             onRegister: function () {
-                _header = this.viewComponent;
-                this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, _header );
+                _that = this;
+                _slots = this.viewComponent;
+                this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, _slots );
             },
 
             onRemove: function () {
+                _slots = null;
                 this.setViewComponent(null);
             }
         },
 
         {
-            NAME: 'HeaderMediator'
+            NAME: 'ReelsMediator'
         }
     );
 

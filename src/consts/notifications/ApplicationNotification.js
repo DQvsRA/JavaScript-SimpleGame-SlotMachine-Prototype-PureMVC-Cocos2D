@@ -8,7 +8,4 @@ window.ApplicationNotification =
 
 ,   ADD_VIEW_COMPONENT		:"app_notification_addViewComponent"
 ,   REMOVE_VIEW_COMPONENT	:"app_notification_removeViewComponent"
-
-,   ADD_FLASH_COMPONENT		:"app_notification_addFlashComponent"
-,   REMOVE_FLASH_COMPONENT	:"app_notification_removeFlashComponent"
 };

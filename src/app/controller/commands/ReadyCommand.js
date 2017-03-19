@@ -16,17 +16,11 @@
 
         // INSTANCE MEMBERS
         {
-            execute: function (note) {
+            execute: function () {
                 console.log("> PureMVC -> Startup - READY!");
 
-                var userProxy = this.facade.retrieveProxy(app.model.proxy.UserProxy.NAME); /* Get UserProxy to get default user and set current user if it's already setted */
-                // var user = userProxy.getUser();
-
-                var stage = note.getBody();
-                var layer = new HelloWorldsLayer();
-                stage.onEnter = function () {
-                    this.addChild(layer);
-                };
+                this.facade.removeCommand( ApplicationCommands.STARTUP );
+                this.facade.removeCommand( ApplicationCommands.READY );
 
                 this.sendNotification( HeaderNotification.SET_SCORE, Math.floor(Math.random()*1000) );
                 this.sendNotification( HeaderNotification.SET_GAMES, Math.floor(Math.random()*1000) );

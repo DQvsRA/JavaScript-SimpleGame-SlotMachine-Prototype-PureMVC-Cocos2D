@@ -9,37 +9,45 @@
     "renderMode" : 0,
     "engineDir":"frameworks/cocos2d-html5",
 
-    "modules" : ["cocos2d"],
+    "modules" : ["cocos2d", "extensions"],
 
     "jsList" : [
         "src/resource.js",
         "src/app.js",
 
         "src/utils/ColorUtils.js",
+        "src/utils/XMLUtils.js",
 
         "src/app/ApplicationFacade.js",
+
+        "src/consts/Defaults.js",
         "src/consts/commands/ApplicationCommands.js",
+        "src/consts/events/FooterEvents.js",
         "src/consts/notifications/ApplicationNotification.js",
-        "src/consts/notifications/ControlsNotification.js",
+        "src/consts/notifications/FooterNotification.js",
         "src/consts/notifications/HeaderNotification.js",
         "src/consts/notifications/OrderNotification.js",
-        "src/consts/notifications/SlotsNotification.js",
+        "src/consts/notifications/ReelsNotification.js",
 
         "src/app/controller/commands/StartupCommand.js",
         "src/app/controller/commands/ReadyCommand.js",
         "src/app/controller/commands/prepare/PrepareControllerCommand.js",
         "src/app/controller/commands/prepare/PrepareModelCommand.js",
         "src/app/controller/commands/prepare/PrepareViewCommand.js",
+        "src/app/controller/commands/prepare/PrepareCompleteCommand.js",
 
         "src/app/view/ApplicationMediator.js",
         "src/app/view/mediators/HeaderMediator.js",
-        "src/app/view/mediators/SlotsMediator.js",
+        "src/app/view/mediators/FooterMediator.js",
+        "src/app/view/mediators/ReelsMediator.js",
 
         "src/app/view/components/Header.js",
-        "src/app/view/components/HelloWorlds.js",
+        "src/app/view/components/Footer.js",
+        "src/app/view/components/Reels.js",
 
         "src/app/model/proxy/ApplicationProxy.js",
         "src/app/model/proxy/UserProxy.js",
+        "src/app/model/proxy/GameProxy.js",
 
         "src/app/model/vos/UserVO.js",
         "src/app/model/vos/ApplicationVO.js"

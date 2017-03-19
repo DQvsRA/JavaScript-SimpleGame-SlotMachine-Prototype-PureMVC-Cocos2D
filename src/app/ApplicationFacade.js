@@ -28,6 +28,7 @@ puremvc.define
         initializeController: function() {
             puremvc.Facade.prototype.initializeController.call(this);
             this.registerCommand( ApplicationCommands.STARTUP, app.controller.commands.StartupCommand ); // associate the SetupCommand with the STARTUP notification
+            this.registerCommand( ApplicationCommands.READY, app.controller.commands.ReadyCommand ); // associate the SetupCommand with the STARTUP notification
         },
         initializeModel: function() {
             puremvc.Facade.prototype.initializeModel.call(this);

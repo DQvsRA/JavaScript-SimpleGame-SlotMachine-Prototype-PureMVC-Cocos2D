@@ -19,8 +19,9 @@ puremvc.define
         execute: function (note)
         {
             console.log("> PureMVC -> Startup - Prepare: Model");
-            this.facade.registerProxy( new app.model.proxy.UserProxy() );
             this.facade.registerProxy( new app.model.proxy.ApplicationProxy() );
+            this.facade.registerProxy( new app.model.proxy.UserProxy() );
+            this.facade.registerProxy( new app.model.proxy.GameProxy() );
         }
     }
 );

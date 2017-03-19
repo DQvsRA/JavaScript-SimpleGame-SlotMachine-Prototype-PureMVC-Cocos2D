@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<combinations></combinations>
+	<game data-cost="10">
+	</game>
+	<reels count="3"
+		   items="3"
+		   speed="500"
+		   spintime="3"
+		   timespread="1"
+	>
+		<item type="apple"/>
+		<item type="banana"/>
+		<item type="bell"/>
+		<item type="cherry"/>
+		<item type="lemon"/>
+		<item type="origin"/>
+		<item type="purple"/>
+	</reels>
+</data>

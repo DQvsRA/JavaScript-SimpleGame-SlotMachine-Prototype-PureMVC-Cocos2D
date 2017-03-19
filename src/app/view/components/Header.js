@@ -10,10 +10,11 @@ var Header = null;
     const TF_FONT_FONT = "Arial";
     const TF_FONT_WIDTH = 144;
     const TF_FONT_MARGIN_X = 96;
-    const TF_FONT_CLR = "#cccccc";
+    const TF_FONT_CLR_SCORE = ColorUtils.hexToRgb("ffffff");
+    const TF_FONT_CLR_GAMES = ColorUtils.hexToRgb("232323");
 
     const HEADER_HEIGHT = 64;
-    const HEADER_COLOR = ColorUtils.hexToRgb("656565");
+    const HEADER_COLOR = ColorUtils.hexToRgb("444444");
 
     Header = cc.Layer.extend({
         sprite: null,
@@ -23,8 +24,8 @@ var Header = null;
 
             var size = cc.winSize;
 
-            var rectangle = new cc.DrawNode();
-            rectangle.drawRect(
+            var background = new cc.DrawNode();
+            background.drawRect(
                 cc.p(size.width, size.height - HEADER_HEIGHT),
                 cc.p(0, size.height),
                 cc.color.apply(null, HEADER_COLOR),
@@ -33,13 +34,16 @@ var Header = null;
 
             this.scoreTF = new cc.LabelTTF(TF_SCORE_TEXT, TF_FONT_FONT, TF_FONT_SIZE, cc.size(TF_FONT_WIDTH,TF_FONT_SIZE), cc.TEXT_ALIGNMENT_LEFT);
             this.scoreTF.x = TF_FONT_MARGIN_X;
-            this.scoreTF.y = size.height - TF_FONT_SIZE - 4;
+            this.scoreTF.y = size.height - TF_FONT_SIZE - 8;
             this.scoreTF.textAlign = cc.TEXT_ALIGNMENT_LEFT;
-            this.gamesTF = new cc.LabelTTF(TF_GAMES_TEXT, TF_FONT_FONT, TF_FONT_SIZE, cc.size(TF_FONT_WIDTH,TF_FONT_SIZE), cc.TEXT_ALIGNMENT_LEFT);
-            this.gamesTF.x = this.scoreTF.x + TF_FONT_WIDTH + TF_FONT_MARGIN_X;
-            this.gamesTF.y = this.scoreTF.y;
+            this.scoreTF.color = cc.color.apply(null, TF_FONT_CLR_SCORE);
 
-            this.addChild(rectangle);
+            this.gamesTF = new cc.LabelTTF(TF_GAMES_TEXT, TF_FONT_FONT, TF_FONT_SIZE, cc.size(TF_FONT_WIDTH,TF_FONT_SIZE), cc.TEXT_ALIGNMENT_CENTER);
+            this.gamesTF.x = size.width * 0.5;
+            this.gamesTF.y = this.scoreTF.y;
+            this.gamesTF.color = cc.color.apply(null, TF_FONT_CLR_GAMES);
+
+            this.addChild(background);
             this.addChild(this.scoreTF);
             this.addChild(this.gamesTF);
 
