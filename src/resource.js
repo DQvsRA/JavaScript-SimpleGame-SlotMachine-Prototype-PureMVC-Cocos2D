@@ -1,6 +1,6 @@
 var res = {
     SpinButton_png    : "res/SimpleButton.png",
-    CocosLogo_png     : "res/HelloWorld.png",
+    CocosLogo_png     : "res/CocosLogo.png",
     GameData_xml      : "res/GameData.xml",
 
     Items_SpriteSheet_png   : "res/items/spritesheet.png",
