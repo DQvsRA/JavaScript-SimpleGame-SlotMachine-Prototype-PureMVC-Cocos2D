@@ -13,7 +13,7 @@ var Header = null;
     const TF_FONT_CLR_SCORE = ColorUtils.hexToRgb("ffffff");
     const TF_FONT_CLR_GAMES = ColorUtils.hexToRgb("232323");
 
-    const HEADER_HEIGHT = 64;
+    const HEADER_HEIGHT = Defaults.HEADER_HEIGHT;
     const HEADER_COLOR = ColorUtils.hexToRgb("444444");
 
     Header = cc.Layer.extend({

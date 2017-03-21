@@ -4,7 +4,7 @@
 var Footer = null;
 (function () {
 
-    const FOOTER_HEIGHT = 64;
+    const FOOTER_HEIGHT = Defaults.FOOTER_HEIGHT;
     const FOOTER_COLOR = ColorUtils.hexToRgb("444444");
 
     const SPIN_FONT_SIZE = 96;

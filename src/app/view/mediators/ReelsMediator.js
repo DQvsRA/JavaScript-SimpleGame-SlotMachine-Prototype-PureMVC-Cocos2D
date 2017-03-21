@@ -6,7 +6,7 @@
     //    PRIVATE VARIABLE       //
     ///////////////////////////////
     var _that = null;
-    var _slots = null;
+    var _reels = null;
 
     /**
      * @class app.view.mediators.ReelsMediator
@@ -55,12 +55,13 @@
 
             onRegister: function () {
                 _that = this;
-                _slots = this.viewComponent;
-                this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, _slots );
+                _reels = this.viewComponent;
+                this.sendNotification( ReelsCommands.SETUP_REELS, _reels );
+                this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, _reels );
             },
 
             onRemove: function () {
-                _slots = null;
+                _reels = null;
                 this.setViewComponent(null);
             }
         },

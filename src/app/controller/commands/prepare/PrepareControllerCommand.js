@@ -19,6 +19,11 @@ puremvc.define
         execute: function (note)
         {
             console.log("> PureMVC -> Startup - Prepare: Controller");
+
+            var commands = app.controller.commands;
+            this.facade.registerCommand(
+                ReelsCommands.SETUP_REELS,
+                commands.reels.SetupReelsCommand );
         }
     }
 );

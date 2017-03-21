@@ -24,13 +24,13 @@ puremvc.define
             var gameProxy = this.facade.retrieveProxy(app.model.proxy.GameProxy.NAME); /* Get UserProxy to get default user and set current user if it's already setted */
             // var user = userProxy.getUser();
 
-            trace("\tgameProxy:", gameProxy.name);
-            trace("\t\t.reelsCount =", gameProxy.reelsCount());
-            trace("\t\t.itemsCount =", gameProxy.itemsCount());
-            trace("\t\t.reelSpeed =", gameProxy.reelSpeed());
-            trace("\t\t.spinTime =", gameProxy.spinTime());
-            trace("\t\t.spinTimeSpread =", gameProxy.spinTimeSpread());
-            trace("\t\t.reelItemsNames =", gameProxy.reelItemsNames());
+            // trace("\tgameProxy:", gameProxy.name);
+            // trace("\t\t.reelsCount =", gameProxy.reelsCount());
+            // trace("\t\t.itemsCount =", gameProxy.itemsCount());
+            // trace("\t\t.reelSpeed =", gameProxy.reelSpeed());
+            // trace("\t\t.spinTime =", gameProxy.spinTime());
+            // trace("\t\t.spinTimeSpread =", gameProxy.spinTimeSpread());
+            // trace("\t\t.reelItemsNames =", gameProxy.reelItemsNames());
 
             this.sendNotification( ApplicationCommands.READY );
             this.sendNotification( ApplicationNotification.INITIALIZED );

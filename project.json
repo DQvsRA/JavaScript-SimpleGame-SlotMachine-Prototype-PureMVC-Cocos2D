@@ -21,7 +21,9 @@
         "src/app/ApplicationFacade.js",
 
         "src/consts/Defaults.js",
+        "src/consts/graphics/SpritesNames.js",
         "src/consts/commands/ApplicationCommands.js",
+        "src/consts/commands/ReelsCommands.js",
         "src/consts/events/FooterEvents.js",
         "src/consts/notifications/ApplicationNotification.js",
         "src/consts/notifications/FooterNotification.js",
@@ -35,6 +37,7 @@
         "src/app/controller/commands/prepare/PrepareModelCommand.js",
         "src/app/controller/commands/prepare/PrepareViewCommand.js",
         "src/app/controller/commands/prepare/PrepareCompleteCommand.js",
+        "src/app/controller/commands/reels/SetupReelsCommand.js",
 
         "src/app/view/ApplicationMediator.js",
         "src/app/view/mediators/HeaderMediator.js",
