@@ -3,7 +3,7 @@
 	<combinations></combinations>
 	<game data-cost="10">
 	</game>
-	<reels count="3"
+	<reels count="4"
 		   items="3"
 		   speed="500"
 		   spintime="3"
