@@ -40,15 +40,11 @@
             /** @override */
             handleNotification: function (note) {
                 //console.log("ApplicationMediator note:", note);
-                var body = note.getBody();
-                var type = note.getType();
-                var name = note.getName();
+                const name = note.getName();
                 switch (name) {
                     case ReelsNotification.SPIN:
                         trace("> ReelsMediator -> handleNotification : DO SPIN");
-                        setTimeout(function () {
-                            _that.sendNotification( FooterNotification.UNLOCK );
-                        }, 2000);
+                        _reels.spin();
                         break;
                 }
             },
@@ -56,6 +52,7 @@
             onRegister: function () {
                 _that = this;
                 _reels = this.viewComponent;
+                cc.eventManager.addCustomListener(ReelsEvents.SPIN_COMPLETED, Handle_SpinFinished);
                 this.sendNotification( ReelsCommands.SETUP_REELS, _reels );
                 this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, _reels );
             },
@@ -74,5 +71,7 @@
     ///////////////////////////////
     //    PRIVATE METHODS        //
     ///////////////////////////////
-
+    function Handle_SpinFinished() {
+        _that.sendNotification( FooterNotification.UNLOCK );
+    }
 })();

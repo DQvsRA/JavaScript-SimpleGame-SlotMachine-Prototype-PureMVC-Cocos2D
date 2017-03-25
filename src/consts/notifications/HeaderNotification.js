@@ -3,8 +3,7 @@
  */
 window.HeaderNotification =
 {
-    SET_SCORE				:"header_notification_setScore"
-,	SET_GAMES		:"header_notification_setGamesPlayed"
-,	ENABLE_ORDER_BUTTON		:"header_notification_enableOrderButton"
-,	DISABLE_ORDER_BUTTON	:"header_notification_disableOrderButton"
+    SET_SCORE				:"header_notification_set_score"
+,	SET_GAMES		        :"header_notification_set_games"
+,	ADD_GAMES		        :"header_notification_add_games"
 };

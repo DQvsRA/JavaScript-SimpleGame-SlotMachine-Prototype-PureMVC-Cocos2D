@@ -33,13 +33,13 @@
 
             /* END */
             reelsCount: function() {
-                return _reels.getAttribute("count") || Defaults.REELS_COUNT;
+                return parseInt(_reels.getAttribute("count")) || Defaults.REELS_COUNT;
             },
             reelSpeed: function() {
                 return _reels.getAttribute("speed") || Defaults.REEL_SPEED;
             },
             itemsCount: function() {
-                return _reels.getAttribute("items") || Defaults.ITEMS_COUNT;
+                return parseInt(_reels.getAttribute("items")) || Defaults.ITEMS_COUNT;
             },
             spinTime: function() {
                 return _reels.getAttribute("spintime") || Defaults.SPIN_TIME;

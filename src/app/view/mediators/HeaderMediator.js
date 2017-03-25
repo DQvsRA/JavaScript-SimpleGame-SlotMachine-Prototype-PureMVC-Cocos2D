@@ -32,8 +32,7 @@
                 return [
                     HeaderNotification.SET_SCORE
                 ,	HeaderNotification.SET_GAMES
-                ,	HeaderNotification.ENABLE_ORDER_BUTTON
-                ,	HeaderNotification.DISABLE_ORDER_BUTTON
+                ,	HeaderNotification.ADD_GAMES
                 ];
             },
 
@@ -44,6 +43,7 @@
                 switch (name) {
                     case HeaderNotification.SET_SCORE: 				_header.setScore( note.getBody() ); 		break;
                     case HeaderNotification.SET_GAMES: 		        _header.setGames( note.getBody() ); 	break;
+                    case HeaderNotification.ADD_GAMES: 		        _header.setGames( note.getBody() ); 	break;
                     // case HeaderNotification.ENABLE_ORDER_BUTTON: 	_header.orderButton.enabled = true; 				break;
                     // case HeaderNotification.DISABLE_ORDER_BUTTON: 	_header.orderButton.enabled = false; 			break;
                 }

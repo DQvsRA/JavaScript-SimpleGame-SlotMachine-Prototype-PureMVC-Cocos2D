@@ -25,6 +25,7 @@
         "src/consts/commands/ApplicationCommands.js",
         "src/consts/commands/ReelsCommands.js",
         "src/consts/events/FooterEvents.js",
+        "src/consts/events/ReelsEvents.js",
         "src/consts/notifications/ApplicationNotification.js",
         "src/consts/notifications/FooterNotification.js",
         "src/consts/notifications/HeaderNotification.js",
