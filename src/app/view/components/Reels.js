@@ -56,6 +56,65 @@ var Reels = null;
 
             return true;
         },
+        spinWithFinalReplacement:function(spinTime, timeSpread, combinations)
+        {
+            _spinners.map(function(spinner)
+            {
+                const reelIndex = spinner.getTag();
+                const reelCombination = combinations[reelIndex].innerHTML;
+                const finalCombination = reelCombination.split(",");
+
+                var deltaTime = Math.random() * timeSpread * 2 - timeSpread;
+                var time = Math.ceil(spinTime + deltaTime);
+                var yPos = spinner.y - _viewport.height * (spinTime + timeSpread);
+                var position = cc.p(spinner.x, yPos);
+                var tween = cc.moveTo(time, position)
+                                .easing(cc.easeOut(0.1))
+                                .speed(0.9 + Math.random() * 0.5);
+
+                finalCombination.push(Math.floor(ALL_COUNT * Math.random()));
+
+                var startReplaceFrom = Math.floor(Math.abs(yPos) / _itemHeight) - finalCombination.length;
+                spinner.speed = Math.abs(yPos) / time;
+
+                spinner.runAction(tween);
+                tween.update = function(){
+                    var currentItem = 0;
+                    var child = null;
+                    var rndIndex = 0;
+                    var currentPos = 0;
+                    var reelItems = spinner.getChildrenCount();
+                    var alwaysVisible = reelItems - 1;
+
+                    return function (p) {
+                        currentPos = yPos * p;
+                        if(Math.floor(-currentPos / _itemHeight) > currentItem)
+                        {
+                            if(currentItem < startReplaceFrom) {
+                                rndIndex = Math.floor(ALL_COUNT * Math.random());
+                            } else {
+                                rndIndex = finalCombination.shift();
+                            }
+                            child = spinner.getChildByTag(currentItem % reelItems);
+                            child.setSpriteFrame(ALL_SPRITES[rndIndex]);
+                            currentItem++;
+                            spinner.removeChild(child);
+                            child.y = (currentItem + alwaysVisible) * _itemHeight;
+                            spinner.addChild(child);
+                        }
+
+                        spinner.y = currentPos;
+
+                        if(p === 1) {
+                            ClearSpinnerPosition(spinner);
+                            cc.eventManager.dispatchCustomEvent(
+                                ReelsEvents.COMBINATION_SPIN_COMPLETED
+                            );
+                        }
+                    }
+                }();
+            });
+        },
         spinReelToCombination:function(combination, reelIndex)
         {
             trace("spinReelToCombination", combination, reelIndex);
@@ -103,7 +162,8 @@ var Reels = null;
             }();
             return action;
         },
-        spin:function(spinTime, timeSpread){
+        spin:function(spinTime, timeSpread)
+        {
             _spinners.map(function(spinner)
             {
                 var deltaTime = Math.random() * timeSpread * 2 - timeSpread;
@@ -151,11 +211,8 @@ var Reels = null;
                 }();
             });
         },
-        spinToCombinationWithRandom:function (
-            spinTime,
-            timeSpread,
-            combinations
-        ) {
+        spinToCombinationWithRandom:function (spinTime, timeSpread, combinations)
+        {
             trace("combinations", combinations);
             const spinToComb = this.spinReelToCombination;
             const that = this;

@@ -24,7 +24,8 @@
 
                 if(toCombination) {
                     const combinationProxy = this.facade.retrieveProxy(app.model.proxy.CombinationsProxy.NAME);
-                    reels.spinToCombinationWithRandom(
+                    // reels.spinToCombinationWithRandom(
+                    reels.spinWithFinalReplacement(
                         gameProxy.spinTime(),
                         gameProxy.spinTimeSpread(),
                         combinationProxy.getCombinations()

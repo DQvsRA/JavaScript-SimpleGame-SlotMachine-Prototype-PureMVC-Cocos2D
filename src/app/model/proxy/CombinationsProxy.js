@@ -35,6 +35,9 @@
                         && parseInt(elem.getAttribute("items")) === items;
                 });
                 _currentGameCombination = possibleCOmbinations[Math.floor(possibleCOmbinations.length * Math.random())];
+                if(!_currentGameCombination) {
+                    throw new Error("Sorry there is no combination with that parameters: " +reels + "x"+items);
+                }
             },
             getCombinations:function () {
                 return [].slice.call(_currentGameCombination.getElementsByTagName("reel"), 0)
