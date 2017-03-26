@@ -20,10 +20,11 @@ puremvc.define
         {
             console.log("> PureMVC -> Startup - Prepare: Controller");
 
-            var commands = app.controller.commands;
-            this.facade.registerCommand(
-                ReelsCommands.SETUP_REELS,
-                commands.reels.SetupReelsCommand );
+            const commands = app.controller.commands;
+
+            this.facade.registerCommand( ReelsCommands.SETUP_REELS,  commands.reels.SetupReelsCommand );
+            this.facade.registerCommand( GameCommands.COMPLETE,      commands.game.GameCompleteCommand );
+            this.facade.registerCommand( GameCommands.START,         commands.game.StartGameCommand );
         }
     }
 );

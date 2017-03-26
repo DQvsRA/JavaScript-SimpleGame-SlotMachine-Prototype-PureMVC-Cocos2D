@@ -8,9 +8,9 @@
      * @extends puremvc.Proxy
      */
 
-    var _reels;
+    var _params;
+    var _gamesplayed = 0;
     var _finishedReels = 0;
-    var _predefinedResultsChanged = false;
 
     puremvc.define
     (
@@ -28,27 +28,28 @@
 
         // INSTANCE MEMBERS
         {
-
             /* GETTERS */
-
+            getGamesPlayed: function () {
+                return _gamesplayed;
+            },
             /* END */
             reelsCount: function() {
-                return parseInt(_reels.getAttribute("count")) || Defaults.REELS_COUNT;
+                return parseInt(_params.getAttribute("count")) || Defaults.REELS_COUNT;
             },
             reelSpeed: function() {
-                return _reels.getAttribute("speed") || Defaults.REEL_SPEED;
+                return _params.getAttribute("speed") || Defaults.REEL_SPEED;
             },
             itemsCount: function() {
-                return parseInt(_reels.getAttribute("items")) || Defaults.ITEMS_COUNT;
+                return parseInt(_params.getAttribute("items")) || Defaults.ITEMS_COUNT;
             },
             spinTime: function() {
-                return _reels.getAttribute("spintime") || Defaults.SPIN_TIME;
+                return _params.getAttribute("spintime") || Defaults.SPIN_TIME;
             },
             spinTimeSpread: function() {
-                return _reels.getAttribute("timespread") || Defaults.SPIN_TIME_SPREAD;
+                return _params.getAttribute("timespread") || Defaults.SPIN_TIME_SPREAD;
             },
             reelItemsNames: function() {
-                return _reels.getElementsByTagName("item");
+                return _params.getElementsByTagName("item");
             },
             isAllReelsFinished : function () {
                 return _finishedSlots == this.reelsCount();
@@ -61,13 +62,13 @@
                 _finishedReels = 0;
             },
             endGame: function () {
-
+                _gamesplayed += 1;
             },
             reelSpinFinished: function() {
                 _finishedReels += 1;
             },
             onRegister: function () {
-                _reels = this.data.getElementsByTagName("reels")[0];
+                _params = this.data.getElementsByTagName("reels")[0];
                 console.log("> \t\t\tGameProxy -> GameData:", this.data);
             }
             ,

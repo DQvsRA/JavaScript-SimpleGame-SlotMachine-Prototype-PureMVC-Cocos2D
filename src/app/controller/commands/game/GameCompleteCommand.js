@@ -3,25 +3,27 @@
  */
 (function() {
     /**
-     * @class app.controller.commands.reels.SpinningCompleteCommand
+     * @class app.controller.commands.game.GameCompleteCommand
      * @extends puremvc.SimpleCommand
      */
     puremvc.define
     (
         // CLASS INFO
         {
-            name: 'app.controller.commands.reels.SpinningCompleteCommand',
+            name: 'app.controller.commands.game.GameCompleteCommand',
             parent: puremvc.SimpleCommand
         },
 
         // INSTANCE MEMBERS
         {
             execute: function (note) {
-                console.log("> \t\t\t| Spinning Complete Command ");
+                console.log("> \t\t\t| Game Complete Command ");
                 const gameProxy = this.facade.retrieveProxy(app.model.proxy.GameProxy.NAME);
 
-                const reels = note.getBody();
-                reels.setup(gameProxy.reelsCount(), gameProxy.itemsCount());
+                gameProxy.endGame();
+
+                this.sendNotification( HeaderNotification.SET_GAMES, gameProxy.getGamesPlayed() );
+                this.sendNotification( FooterNotification.UNLOCK );
             }
         }
     );

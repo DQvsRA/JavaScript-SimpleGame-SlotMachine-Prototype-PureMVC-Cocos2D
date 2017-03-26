@@ -33,6 +33,7 @@
                 console.log("> \t\t\t| FooterMediator > Register Notifications")
                 return [
                     FooterNotification.UNLOCK
+                ,   FooterNotification.LOCK
                 ];
             },
 
@@ -42,6 +43,7 @@
                 console.log("> FooterMediator -> Notification: ", note);
                 switch (name) {
                     case FooterNotification.UNLOCK: _footer.unlock(); break;
+                    case FooterNotification.LOCK:   _footer.lock(); break;
                 }
             },
 
@@ -58,7 +60,7 @@
         },
 
         {
-            NAME: 'FooterMediator'
+            NAME: 'FooteLOCKrMediator'
         }
     );
 
@@ -68,8 +70,7 @@
 
     function Handle_SpinButton_Touched(e) {
         trace("> FooterMediator -> Handle spin button");
-        _footer.lock();
-        _that.sendNotification( ReelsNotification.SPIN );
+        _that.sendNotification( GameCommands.START );
     }
 
 })();

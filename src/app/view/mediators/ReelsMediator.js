@@ -72,6 +72,8 @@
     //    PRIVATE METHODS        //
     ///////////////////////////////
     function Handle_SpinFinished() {
-        _that.sendNotification( FooterNotification.UNLOCK );
+        setTimeout(function () {
+            _that.sendNotification( GameCommands.COMPLETE );
+        }, 300);
     }
 })();

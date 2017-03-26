@@ -24,6 +24,7 @@
         "src/consts/graphics/SpritesNames.js",
         "src/consts/commands/ApplicationCommands.js",
         "src/consts/commands/ReelsCommands.js",
+        "src/consts/commands/GameCommands.js",
         "src/consts/events/FooterEvents.js",
         "src/consts/events/ReelsEvents.js",
         "src/consts/notifications/ApplicationNotification.js",
@@ -39,6 +40,8 @@
         "src/app/controller/commands/prepare/PrepareViewCommand.js",
         "src/app/controller/commands/prepare/PrepareCompleteCommand.js",
         "src/app/controller/commands/reels/SetupReelsCommand.js",
+        "src/app/controller/commands/game/StartGameCommand.js",
+        "src/app/controller/commands/game/GameCompleteCommand.js",
 
         "src/app/view/ApplicationMediator.js",
         "src/app/view/mediators/HeaderMediator.js",

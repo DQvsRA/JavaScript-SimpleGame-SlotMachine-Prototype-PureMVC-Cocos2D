@@ -3,5 +3,6 @@
  */
 window.FooterNotification =
 {
-    UNLOCK:"footer_notification_unlock"
+    UNLOCK      : "footer_notification_unlock"
+,   LOCK        : "footer_notification_lock"
 };

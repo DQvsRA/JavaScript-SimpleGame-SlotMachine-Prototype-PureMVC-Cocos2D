@@ -18,10 +18,11 @@ puremvc.define
         /** @override */
         execute: function (note)
         {
+            var proxies = app.model.proxy;
             console.log("> PureMVC -> Startup - Prepare: Model");
-            this.facade.registerProxy( new app.model.proxy.ApplicationProxy() );
-            this.facade.registerProxy( new app.model.proxy.UserProxy() );
-            this.facade.registerProxy( new app.model.proxy.GameProxy() );
+            this.facade.registerProxy( new proxies.ApplicationProxy() );
+            this.facade.registerProxy( new proxies.UserProxy() );
+            this.facade.registerProxy( new proxies.GameProxy() );
         }
     }
 );

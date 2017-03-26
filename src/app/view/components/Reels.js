@@ -49,7 +49,7 @@ var Reels = null;
                 var yPos = spinner.y - _viewport.height * 2 + 10;
                 var position = cc.p(spinner.x, yPos);
                 var tween = cc.moveTo(time, position)
-                    .easing(cc.easeIn(0.5));
+                    .easing(cc.easeIn(2));
                 var action = spinner.runAction(tween);
 
                 action.update = function(){
@@ -78,7 +78,7 @@ var Reels = null;
                                 item.setTag(index);
                             });
                             spinnerFinished++;
-                            if(spinnerFinished) {
+                            if(spinnerFinished == 4) {
                                 cc.eventManager.dispatchCustomEvent(ReelsEvents.SPIN_COMPLETED);
                             }
                         }

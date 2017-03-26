@@ -21,9 +21,6 @@
 
                 this.facade.removeCommand( ApplicationCommands.STARTUP );
                 this.facade.removeCommand( ApplicationCommands.READY );
-
-                this.sendNotification( HeaderNotification.SET_SCORE, Math.floor(Math.random()*1000) );
-                this.sendNotification( HeaderNotification.SET_GAMES, Math.floor(Math.random()*1000) );
             }
         }
     );

@@ -32,6 +32,9 @@ puremvc.define
             // trace("\t\t.spinTimeSpread =", gameProxy.spinTimeSpread());
             // trace("\t\t.reelItemsNames =", gameProxy.reelItemsNames());
 
+            this.sendNotification( HeaderNotification.SET_SCORE, Math.floor(Math.random()*1000) );
+            this.sendNotification( HeaderNotification.SET_GAMES, gameProxy.getGamesPlayed() );
+
             this.sendNotification( ApplicationCommands.READY );
             this.sendNotification( ApplicationNotification.INITIALIZED );
         }
