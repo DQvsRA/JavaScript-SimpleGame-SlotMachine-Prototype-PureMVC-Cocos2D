@@ -43,16 +43,19 @@
                 return parseInt(_params.getAttribute("items")) || Defaults.ITEMS_COUNT;
             },
             spinTime: function() {
-                return _params.getAttribute("spintime") || Defaults.SPIN_TIME;
+                return parseInt(_params.getAttribute("spintime")) || Defaults.SPIN_TIME;
             },
             spinTimeSpread: function() {
-                return _params.getAttribute("timespread") || Defaults.SPIN_TIME_SPREAD;
+                return parseInt(_params.getAttribute("timespread")) || Defaults.SPIN_TIME_SPREAD;
             },
             reelItemsNames: function() {
                 return _params.getElementsByTagName("item");
             },
+            deltaYBetweenItemsInReel: function() {
+                return parseInt(_params.getAttribute("deltaY")) || Defaults.ITEMS_DELTA_Y;
+            },
             isAllReelsFinished : function () {
-                return _finishedSlots == this.reelsCount();
+                return _finishedReels === this.reelsCount();
             },
             /* SETTERS */
 
@@ -69,9 +72,8 @@
             },
             onRegister: function () {
                 _params = this.data.getElementsByTagName("reels")[0];
-                console.log("> \t\t\tGameProxy -> GameData:", this.data);
-            }
-            ,
+                console.log("> \t\t\t| Registered - GameProxy -> data:", this.data);
+            },
             onRemove: function () {
 
             }

@@ -8,9 +8,24 @@ var Reels = null;
     var _viewport = null;
     var _spinners = [];
     var _itemHeight = 0;
+    var _itemProportion = 0;
+    var _deltaYBetweenItemsInReel;
 
     var _createSprite;
     var _spriteCache;
+
+    const ALL_SPRITES = SpritesNames.ALL;
+    const ALL_COUNT = ALL_SPRITES.length;
+
+    const ClearSpinnerPosition = function (spinner) {
+        spinner.y = 0;
+        var currentPos = _deltaYBetweenItemsInReel;
+        spinner.getChildren().forEach(function (item, index) {
+            item.y = currentPos;
+            currentPos += _itemHeight;
+            item.setTag(index);
+        });
+    };
 
     Reels = cc.Layer.extend({
         sprite: null,
@@ -41,90 +56,147 @@ var Reels = null;
 
             return true;
         },
-        spin:function() {
-            var spinnerFinished = 0;
-            _spinners.map(function(spinner){
-                var delataTime = Math.random() * 0.4;
-                var time = 0.4 * 2 + delataTime;
-                var yPos = spinner.y - _viewport.height * 2 + 10;
-                var position = cc.p(spinner.x, yPos);
-                var tween = cc.moveTo(time, position)
-                    .easing(cc.easeIn(2));
-                var action = spinner.runAction(tween);
+        spinReelToCombination:function(combination, reelIndex){
+            var spinner = _spinners[reelIndex];
+            var childrenCount = spinner.getChildrenCount();
+            var spinnerHeight = childrenCount * _itemHeight;
+            var time = spinnerHeight / spinner.speed;
+            var yPos = spinner.y - spinnerHeight;
+            var position = cc.p(spinner.x, yPos);
+            var tween = cc.moveTo(time, position);
+            var action = spinner.runAction(tween);
 
+            trace("combination", combination, time);
+            combination.push(Math.floor(ALL_SPRITES.length * Math.random()));
+
+            spinnerHeight += _deltaYBetweenItemsInReel;
+            combination.map(function (itemIndex) {
+                var name = ALL_SPRITES[itemIndex];
+                var frame = _spriteCache.getSpriteFrame(name);
+                var finalItem = new _createSprite(frame);
+                finalItem.setAnchorPoint(cc.p(0.5, 0));
+                finalItem.setScale(_itemProportion, _itemProportion);
+                finalItem.x = 0;
+                finalItem.y = spinnerHeight;
+                spinnerHeight += _itemHeight;
+                spinner.addChild(finalItem);
+            });
+
+            action.update = function(){
+                var currentPos = 0;
+                return function (p) {
+                    currentPos = yPos * p;
+                    spinner.y = currentPos;
+                    if(p === 1) {
+                        while(childrenCount--) {
+                            spinner.removeChildByTag(childrenCount);
+                        }
+                        ClearSpinnerPosition(spinner);
+                        cc.eventManager.dispatchCustomEvent(
+                            ReelsEvents.COMBINATION_SPIN_COMPLETED
+                        );
+                    }
+                }
+            }();
+        },
+        spin:function(spinTime, timeSpread){
+            _spinners.map(function(spinner)
+            {
+                var deltaTime = Math.random() * timeSpread * 2 - timeSpread;
+                var time = Math.ceil(spinTime + deltaTime);
+                var yPos = spinner.y - _viewport.height * (spinTime + timeSpread);
+                var position = cc.p(spinner.x, yPos);
+                var tween = cc.moveTo(time, position);
+
+                spinner.speed = Math.abs(yPos) / time;
+
+                trace(spinner.getTag(),  spinner.speed);
+
+                var action = spinner.runAction(tween);
                 action.update = function(){
                     var currentItem = 0;
+                    var child = null;
+                    var rndIndex = 0;
+                    var currentPos = 0;
+                    var reelItems = spinner.getChildrenCount();
+                    var alwaysVisible = reelItems - 1;
+
                     return function (p) {
-                        var currentPos = yPos * p;
-                        if(Math.floor(-currentPos / _itemHeight) > currentItem) {
-                            var child = spinner.getChildByTag(currentItem % 4);
-                            var newChild = new _createSprite(_spriteCache.getSpriteFrame(SpritesNames.ALL[Math.floor(SpritesNames.ALL.length*Math.random())]));
-                            newChild.setTag(child.getTag());
-                            newChild.setAnchorPoint(cc.p(0.5, 0));
-                            newChild.setScale(  _itemHeight / newChild.height,
-                                                _itemHeight / newChild.height);
-                            newChild.x = 0;
+                        currentPos = yPos * p;
+                        if(Math.floor(-currentPos / _itemHeight) > currentItem)
+                        {
+                            rndIndex = Math.floor(ALL_COUNT * Math.random());
+                            child = spinner.getChildByTag(currentItem % reelItems);
+                            child.setSpriteFrame(ALL_SPRITES[rndIndex]);
                             currentItem++;
-                            newChild.y = (currentItem + 3) * (_itemHeight + 10);
                             spinner.removeChild(child);
-                            spinner.addChild(newChild);
+                            child.y = (currentItem + alwaysVisible) * _itemHeight;
+                            spinner.addChild(child);
                         }
-                        spinner.y = yPos*p;
+
+                        spinner.y = currentPos;
+
                         if(p === 1) {
-                            spinner.y = 0;
-                            var allChildren = spinner.getChildren();
-                            allChildren.forEach(function (item, index) {
-                                item.y = 10 + (10 + _itemHeight) * index;
-                                item.setTag(index);
-                            });
-                            spinnerFinished++;
-                            if(spinnerFinished == 4) {
-                                cc.eventManager.dispatchCustomEvent(ReelsEvents.SPIN_COMPLETED);
-                            }
+                            ClearSpinnerPosition(spinner);
+                            cc.eventManager.dispatchCustomEvent(
+                                ReelsEvents.RANDOM_SPIN_COMPLETED,
+                                spinner.getTag()
+                            );
                         }
                     }
                 }();
             });
         },
-        setup: function(reelsCount, itemsCount)
+        setup: function(reelsCount, itemsCount, deltaY)
         {
-            trace("reelsCount", reelsCount);
-            trace("itemsCount", itemsCount);
+            var rnd, item, xp, yp, name, frame;
 
-            var reelWidth = _viewport.width / reelsCount;
-            var reelHeight = _viewport.height / itemsCount - 10;
-            var rnd, sprt, xp, yp;
-            var allPossibleSprites = SpritesNames.ALL;
-            var allItemsCount = allPossibleSprites.length;
+            var reelWidth = Math.floor(_viewport.width / reelsCount);
+            var reelWidthHalf = reelWidth * 0.5;
+
+            _itemHeight = Math.floor(_viewport.height / itemsCount) - deltaY;
+            _deltaYBetweenItemsInReel = deltaY;
 
             itemsCount += 1;
 
-            xp = 0;
-            var spinner;
+            var generateItem = function () {
+                rnd = Math.floor(Math.random() * ALL_COUNT);
+                name = ALL_SPRITES[rnd];
+                frame = _spriteCache.getSpriteFrame(name);
+                return new _createSprite(frame);
+            };
+
+            item = generateItem();
+            _itemProportion = _itemHeight / item.height;
+
+            _itemHeight += deltaY;
+
+            xp = reelWidthHalf;
+            var spinnerContainer;
             for (var i = 0; i < reelsCount; i++)
             {
-                spinner = new cc.Sprite();
-                yp = 10;
+                yp = deltaY;
+                spinnerContainer = new cc.Sprite();
                 for (var j = 0; j < itemsCount; j++)
                 {
-                    rnd = Math.floor(Math.random() * allItemsCount);
-
-                    sprt = new _createSprite(_spriteCache.getSpriteFrame(allPossibleSprites[rnd]));
-                    sprt.setTag(j);
-                    sprt.setAnchorPoint(cc.p(0.5, 0));
-                    sprt.setScale(reelHeight / sprt.height, reelHeight / sprt.height)
-                    sprt.x = 0;
-                    sprt.y = yp;
-                    yp += reelHeight + 10;
-                    spinner.addChild(sprt);
+                    item = generateItem();
+                    item.setTag(j);
+                    item.setAnchorPoint(cc.p(0.5, 0));
+                    item.setScale(_itemProportion, _itemProportion);
+                    item.x = 0;
+                    item.y = yp;
+                    spinnerContainer.addChild(item);
+                    yp += _itemHeight;
                 }
-                _spinners.push(spinner);
-                spinner.x = xp + reelWidth * 0.5;
-                spinner.y = 0;
-                this.addChild(spinner);
-                xp += reelWidth;
+
+                _spinners.push(spinnerContainer);
+                spinnerContainer.x = xp;
+                spinnerContainer.y = 0;
+                spinnerContainer.setTag(i);
+                this.addChild(spinnerContainer);
+
+                xp += reelWidthHalf + reelWidthHalf;
             }
-            _itemHeight = reelHeight;
         }
     });
 })();

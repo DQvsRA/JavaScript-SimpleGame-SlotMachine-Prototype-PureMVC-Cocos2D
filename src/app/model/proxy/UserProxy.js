@@ -14,7 +14,10 @@
             name: 'app.model.proxy.UserProxy',
             parent: puremvc.Proxy,
             constructor: function UserProxy() {
-                puremvc.Proxy.prototype.constructor.call(this, [app.model.proxy.UserProxy.NAME], new app.model.vo.UserVO());
+                puremvc.Proxy.prototype.constructor.call(this,
+                    [app.model.proxy.UserProxy.NAME],
+                    new app.model.vos.UserVO()
+                );
             }
         },
 

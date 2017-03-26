@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <combination reels="4" items="3">
+        <reel>1,2,3</reel>
+        <reel>2,2,2</reel>
+        <reel>3,3,3</reel>
+        <reel>5,4,3</reel>
+    </combination>
+    <combination reels="4" items="3">
+        <reel>4,1,4</reel>
+        <reel>5,3,2</reel>
+        <reel>1,2,1</reel>
+        <reel>1,2,5</reel>
+    </combination>
+    <combination reels="4" items="3">
+        <reel>4,2,4</reel>
+        <reel>1,2,3</reel>
+        <reel>1,2,5</reel>
+        <reel>1,1,5</reel>
+    </combination>
+    <combination reels="4" items="3">
+        <reel>1,1,1</reel>
+        <reel>4,4,4</reel>
+        <reel>5,5,5</reel>
+        <reel>6,6,6</reel>
+    </combination>
+</data>

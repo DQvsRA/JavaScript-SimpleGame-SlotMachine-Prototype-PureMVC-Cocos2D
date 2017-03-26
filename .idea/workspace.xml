@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fcbb536f-f001-41c3-82b7-fc334ec13b72" name="Default" comment="Raw\Test version of spinning with random reels">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/consts/commands/GameCommands.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/controller/commands/reels/SpinningCompleteCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/game/GameCompleteCommand.js" />
+    <list default="true" id="fcbb536f-f001-41c3-82b7-fc334ec13b72" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/Combinations.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/controller/commands/reels/CombinationSpinCompleteCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/controller/commands/reels/RandomSpinCompleteCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/controller/commands/reels/StartSpinningCommand.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/model/proxy/CombinationsProxy.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.json" afterPath="$PROJECT_DIR$/project.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/commands/ReadyCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/ReadyCommand.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareCompleteCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareCompleteCommand.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/GameData.xml" afterPath="$PROJECT_DIR$/res/GameData.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareControllerCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareControllerCommand.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareModelCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareModelCommand.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareViewCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareViewCommand.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/controller/commands/reels/SetupReelsCommand.js" afterPath="$PROJECT_DIR$/src/app/controller/commands/reels/SetupReelsCommand.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/model/proxy/ApplicationProxy.js" afterPath="$PROJECT_DIR$/src/app/model/proxy/ApplicationProxy.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/model/proxy/GameProxy.js" afterPath="$PROJECT_DIR$/src/app/model/proxy/GameProxy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/components/Header.js" afterPath="$PROJECT_DIR$/src/app/view/components/Header.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/model/proxy/UserProxy.js" afterPath="$PROJECT_DIR$/src/app/model/proxy/UserProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/model/vos/ApplicationVO.js" afterPath="$PROJECT_DIR$/src/app/model/vos/ApplicationVO.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/model/vos/UserVO.js" afterPath="$PROJECT_DIR$/src/app/model/vos/UserVO.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/components/Reels.js" afterPath="$PROJECT_DIR$/src/app/view/components/Reels.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/mediators/FooterMediator.js" afterPath="$PROJECT_DIR$/src/app/view/mediators/FooterMediator.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/mediators/HeaderMediator.js" afterPath="$PROJECT_DIR$/src/app/view/mediators/HeaderMediator.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/view/mediators/ReelsMediator.js" afterPath="$PROJECT_DIR$/src/app/view/mediators/ReelsMediator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/consts/notifications/FooterNotification.js" afterPath="$PROJECT_DIR$/src/consts/notifications/FooterNotification.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/consts/Defaults.js" afterPath="$PROJECT_DIR$/src/consts/Defaults.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/consts/commands/ReelsCommands.js" afterPath="$PROJECT_DIR$/src/consts/commands/ReelsCommands.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/consts/events/ReelsEvents.js" afterPath="$PROJECT_DIR$/src/consts/events/ReelsEvents.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/consts/graphics/SpritesNames.js" afterPath="$PROJECT_DIR$/src/consts/graphics/SpritesNames.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/consts/notifications/ReelsNotification.js" afterPath="$PROJECT_DIR$/src/consts/notifications/ReelsNotification.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resource.js" afterPath="$PROJECT_DIR$/src/resource.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,21 +47,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PrepareControllerCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareControllerCommand.js">
+      <file leaf-file-name="ReelsMediator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/view/mediators/ReelsMediator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadyCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/ReadyCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="355">
+              <caret line="46" column="111" lean-forward="false" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -56,11 +59,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reels.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameData.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/GameData.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reels.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/view/components/Reels.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+            <state relative-caret-position="772">
+              <caret line="82" column="15" lean-forward="true" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="15" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -68,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FooterMediator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/view/mediators/FooterMediator.js">
+      <file leaf-file-name="GameProxy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/model/proxy/GameProxy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="72" column="50" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="50" />
+            <state relative-caret-position="450">
+              <caret line="48" column="67" lean-forward="false" selection-start-line="48" selection-start-column="67" selection-end-line="48" selection-end-column="67" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -80,46 +93,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrepareCompleteCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareCompleteCommand.js">
+      <file leaf-file-name="StartGameCommand.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="32" column="80" lean-forward="false" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
+              <folding>
+                <element signature="e#41#81#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Combinations.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/Combinations.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/view/components/Header.js">
+      <file leaf-file-name="ReelsCommands.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/consts/commands/ReelsCommands.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="72">
+              <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#40#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CombinationSpinCompleteCommand.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/reels/CombinationSpinCompleteCommand.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Footer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/view/components/Footer.js">
+      <file leaf-file-name="StartSpinningCommand.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/reels/StartSpinningCommand.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="61" column="20" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#40#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameCompleteCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/game/GameCompleteCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#40#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="414">
+              <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,21 +150,9 @@
       <file leaf-file-name="PrepareViewCommand.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareViewCommand.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+            <state relative-caret-position="247">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PrepareModelCommand.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareModelCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -164,6 +175,8 @@
       <find>reelHeight</find>
       <find>_finishedReels</find>
       <find>_reels</find>
+      <find>setTexture</find>
+      <find>_deltaYBetweenItemsInReel</find>
     </findStrings>
     <replaceStrings>
       <replace>ReelsNotification</replace>
@@ -175,18 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frameworks/vendor/puremvc.min.js" />
-        <option value="$PROJECT_DIR$/src/consts/commands/ApplicationCommand.js" />
-        <option value="$PROJECT_DIR$/frameworks/vendor/puremvc.js" />
-        <option value="$PROJECT_DIR$/src/consts/notifications/ControlsNotification.js" />
-        <option value="$PROJECT_DIR$/src/consts/notifications/OrderNotification.js" />
-        <option value="$PROJECT_DIR$/src/app/view/mediators/SlotMediator.js" />
-        <option value="$PROJECT_DIR$/src/consts/notifications/SlotsNotification.js" />
-        <option value="$PROJECT_DIR$/src/utils/ColorUtils.js" />
-        <option value="$PROJECT_DIR$/src/app/view/components/HelloWorlds.js" />
-        <option value="$PROJECT_DIR$/src/utils/XMLUtils.js" />
-        <option value="$PROJECT_DIR$/src/app/ApplicationFacade.js" />
-        <option value="$PROJECT_DIR$/src/app/controller/commands/StartupCommand.js" />
         <option value="$PROJECT_DIR$/src/consts/notifications/ApplicationNotification.js" />
         <option value="$PROJECT_DIR$/src/app/view/ApplicationMediator.js" />
         <option value="$PROJECT_DIR$/main.js" />
@@ -194,38 +195,50 @@
         <option value="$PROJECT_DIR$/src/consts/events/FooterEvents.js" />
         <option value="$PROJECT_DIR$/src/app/view/mediators/SlotsMediator.js" />
         <option value="$PROJECT_DIR$/src/consts/events/ReelsEvent.js" />
-        <option value="$PROJECT_DIR$/src/consts/notifications/ReelsNotification.js" />
         <option value="$PROJECT_DIR$/src/app/view/components/Footer.js" />
-        <option value="$PROJECT_DIR$/src/consts/Defaults.js" />
         <option value="$PROJECT_DIR$/src/consts/SpriteSheetNames.js" />
         <option value="$PROJECT_DIR$/src/consts/SpriteNames.js" />
         <option value="$PROJECT_DIR$/src/app/controller/commands/reels/CreateReelsCommand.js" />
-        <option value="$PROJECT_DIR$/src/consts/commands/ReelsCommands.js" />
-        <option value="$PROJECT_DIR$/src/app/controller/commands/reels/SetupReelsCommand.js" />
-        <option value="$PROJECT_DIR$/src/consts/graphics/SpritesNames.js" />
-        <option value="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareViewCommand.js" />
-        <option value="$PROJECT_DIR$/src/resource.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/res/GameData.xml" />
-        <option value="$PROJECT_DIR$/src/consts/events/ReelsEvents.js" />
         <option value="$PROJECT_DIR$/src/consts/notifications/HeaderNotification.js" />
-        <option value="$PROJECT_DIR$/src/app/view/mediators/HeaderMediator.js" />
         <option value="$PROJECT_DIR$/src/app/controller/commands/reels/ReelsSpinningCompletedCommand.js" />
-        <option value="$PROJECT_DIR$/src/app/model/proxy/GameProxy.js" />
         <option value="$PROJECT_DIR$/src/app/controller/commands/reels/SpinningCompleteCommand.js" />
-        <option value="$PROJECT_DIR$/src/app/view/mediators/ReelsMediator.js" />
         <option value="$PROJECT_DIR$/src/consts/notifications/FooterNotification.js" />
-        <option value="$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js" />
-        <option value="$PROJECT_DIR$/project.json" />
         <option value="$PROJECT_DIR$/src/consts/commands/GameCommands.js" />
-        <option value="$PROJECT_DIR$/src/app/view/mediators/FooterMediator.js" />
-        <option value="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareControllerCommand.js" />
-        <option value="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareModelCommand.js" />
         <option value="$PROJECT_DIR$/src/app/controller/commands/ReadyCommand.js" />
         <option value="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareCompleteCommand.js" />
         <option value="$PROJECT_DIR$/src/app/controller/commands/game/GameCompleteCommand.js" />
-        <option value="$PROJECT_DIR$/src/app/view/components/Reels.js" />
         <option value="$PROJECT_DIR$/src/app/view/components/Header.js" />
+        <option value="$PROJECT_DIR$/src/consts/graphics/SpritesNames.js" />
+        <option value="$PROJECT_DIR$/src/consts/Defaults.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/reels/SetupReelsCommand.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/game/ReelPreSpinComplete.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/reels/ReelPreSpinComplete.js" />
+        <option value="$PROJECT_DIR$/src/resource.js" />
+        <option value="$PROJECT_DIR$/src/app/model/proxy/ApplicationProxy.js" />
+        <option value="$PROJECT_DIR$/src/app/model/vos/ApplicationVO.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareModelCommand.js" />
+        <option value="$PROJECT_DIR$/src/app/model/proxy/UserProxy.js" />
+        <option value="$PROJECT_DIR$/src/app/model/vos/UserVO.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareViewCommand.js" />
+        <option value="$PROJECT_DIR$/src/app/view/mediators/HeaderMediator.js" />
+        <option value="$PROJECT_DIR$/src/app/view/mediators/FooterMediator.js" />
+        <option value="$PROJECT_DIR$/src/consts/notifications/ReelsNotification.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/reels/SpinCompleteCommand.js" />
+        <option value="$PROJECT_DIR$/src/app/model/proxy/CombinationsProxy.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/reels/RandomSpinCompleteCommand.js" />
+        <option value="$PROJECT_DIR$/src/consts/events/ReelsEvents.js" />
+        <option value="$PROJECT_DIR$/project.json" />
+        <option value="$PROJECT_DIR$/src/consts/commands/ReelsCommands.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareControllerCommand.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/reels/CombinationSpinCompleteCommand.js" />
+        <option value="$PROJECT_DIR$/res/Combinations.xml" />
+        <option value="$PROJECT_DIR$/src/app/view/mediators/ReelsMediator.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js" />
+        <option value="$PROJECT_DIR$/src/app/controller/commands/reels/StartSpinningCommand.js" />
+        <option value="$PROJECT_DIR$/src/app/model/proxy/GameProxy.js" />
+        <option value="$PROJECT_DIR$/res/GameData.xml" />
+        <option value="$PROJECT_DIR$/src/app/view/components/Reels.js" />
       </list>
     </option>
   </component>
@@ -702,9 +715,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/controller/commands/reels" />
       <recent name="$PROJECT_DIR$/res/items" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/controller/commands/reels" />
       <recent name="$PROJECT_DIR$/src/app/controller/commands/game" />
       <recent name="$PROJECT_DIR$/src/consts/graphics" />
       <recent name="$PROJECT_DIR$/src/app/view" />
@@ -785,7 +800,7 @@
       <workItem from="1489939976351" duration="278000" />
       <workItem from="1489940274556" duration="19130000" />
       <workItem from="1490120493790" duration="12112000" />
-      <workItem from="1490469469321" duration="14061000" />
+      <workItem from="1490469469321" duration="29527000" />
     </task>
     <task id="LOCAL-00001" summary="Progress with Footer, and Reels mediator, graphics for reels prepared.">
       <created>1489960973605</created>
@@ -815,17 +830,24 @@
       <option name="project" value="LOCAL" />
       <updated>1490480054877</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactoring of game flow -&gt; using commands">
+      <created>1490520619046</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1490520619046</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59574000" />
+    <option name="totallyTimeSpent" value="75040000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="960" height="1050" extended-state="4" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30309498" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33191034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -854,91 +876,18 @@
     <MESSAGE value="SpriteSheet images, create reels." />
     <MESSAGE value="4 reels in GameData" />
     <MESSAGE value="Raw\Test version of spinning with random reels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Raw\Test version of spinning with random reels" />
+    <MESSAGE value="Refactoring of game flow -&gt; using commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of game flow -&gt; using commands" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/ApplicationFacade.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="97" lean-forward="false" selection-start-line="30" selection-start-column="97" selection-end-line="30" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/commands/ApplicationCommands.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/notifications/ApplicationNotification.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/cocos2d-html5/extensions/ccui/uiwidgets/UIButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4014">
-          <caret line="47" column="26" lean-forward="true" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/StartupCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="60" lean-forward="false" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/events/FooterEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="57" lean-forward="false" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/view/components/HelloWorlds.js" />
-    <entry file="file://$PROJECT_DIR$/src/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/notifications/ReelsNotification.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="72" column="20" lean-forward="false" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.cocos-project.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/Defaults.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -966,14 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="96" column="27" lean-forward="false" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/graphics/SpritesNames.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,14 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/GameData.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/view/ApplicationMediator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1041,26 +974,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="101" column="32" lean-forward="false" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/cocos2d-x/cocos/scripting/js-bindings/auto/api/jsb_cocos2dx_auto_api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="1005" column="0" lean-forward="false" selection-start-line="1005" selection-start-column="0" selection-end-line="1005" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1073,69 +990,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/events/ReelsEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/consts/notifications/HeaderNotification.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/view/mediators/HeaderMediator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="45" column="80" lean-forward="true" selection-start-line="45" selection-start-column="80" selection-end-line="45" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/reels/SetupReelsCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/view/mediators/ReelsMediator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/commands/ReelsCommands.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/model/proxy/GameProxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1147,44 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="42" column="58" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/consts/commands/GameCommands.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding>
-            <element signature="e#41#81#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/view/mediators/FooterMediator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="72" column="50" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/vendor/puremvc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1193,67 +1014,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareControllerCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareModelCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareViewCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/ReadyCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareCompleteCommand.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="36" column="0" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="36" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/game/GameCompleteCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/view/components/Reels.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1269,9 +1034,287 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/view/components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frameworks/cocos2d-x/cocos/scripting/js-bindings/auto/api/jsb_cocos2dx_auto_api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="17443" column="14" lean-forward="false" selection-start-line="17443" selection-start-column="0" selection-end-line="17443" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/ReadyCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/consts/graphics/SpritesNames.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/consts/Defaults.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/model/vos/ApplicationVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/model/proxy/UserProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/model/vos/UserVO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareModelCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/model/proxy/ApplicationProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/consts/commands/GameCommands.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/view/mediators/HeaderMediator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/consts/notifications/ReelsNotification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/reels/SetupReelsCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/view/mediators/FooterMediator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/model/proxy/CombinationsProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/consts/events/ReelsEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="5" column="58" lean-forward="false" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/reels/RandomSpinCompleteCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareControllerCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="28" column="80" lean-forward="false" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/game/GameCompleteCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="79" lean-forward="true" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/reels/CombinationSpinCompleteCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/consts/commands/ReelsCommands.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/view/mediators/ReelsMediator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="46" column="111" lean-forward="false" selection-start-line="46" selection-start-column="111" selection-end-line="46" selection-end-column="111" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/prepare/PrepareViewCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/reels/StartSpinningCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/controller/commands/game/StartGameCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="32" column="80" lean-forward="false" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
+          <folding>
+            <element signature="e#41#81#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/Combinations.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/model/proxy/GameProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="48" column="67" lean-forward="false" selection-start-line="48" selection-start-column="67" selection-end-line="48" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/GameData.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/view/components/Reels.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="82" column="15" lean-forward="true" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

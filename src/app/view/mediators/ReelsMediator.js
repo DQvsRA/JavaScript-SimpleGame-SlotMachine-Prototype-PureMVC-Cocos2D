@@ -34,6 +34,7 @@
                     ReelsNotification.SPIN
                 ,	ReelsNotification.RESET
                 ,	ReelsNotification.SHUFFLE
+                ,	ReelsNotification.SPIN_REEL_TO_COMBINATION
                 ];
             },
 
@@ -42,23 +43,24 @@
                 //console.log("ApplicationMediator note:", note);
                 const name = note.getName();
                 switch (name) {
-                    case ReelsNotification.SPIN:
-                        trace("> ReelsMediator -> handleNotification : DO SPIN");
-                        _reels.spin();
-                        break;
+                    case ReelsNotification.SPIN_REEL_TO_COMBINATION: _reels.spinReelToCombination(note.getBody(), parseInt(note.getType())); break;
+                    case ReelsNotification.SPIN: this.sendNotification( ReelsCommands.START_SPINNING, _reels );
+                        //_reels.spin(parseInt(note.getBody()), parseInt(note.getType()));
+                    break;
                 }
             },
 
             onRegister: function () {
                 _that = this;
                 _reels = this.viewComponent;
-                cc.eventManager.addCustomListener(ReelsEvents.SPIN_COMPLETED, Handle_SpinFinished);
+                SetupListeners();
                 this.sendNotification( ReelsCommands.SETUP_REELS, _reels );
                 this.sendNotification( ApplicationNotification.ADD_VIEW_COMPONENT, _reels );
             },
 
             onRemove: function () {
                 _reels = null;
+                _that = null;
                 this.setViewComponent(null);
             }
         },
@@ -71,9 +73,17 @@
     ///////////////////////////////
     //    PRIVATE METHODS        //
     ///////////////////////////////
-    function Handle_SpinFinished() {
-        setTimeout(function () {
-            _that.sendNotification( GameCommands.COMPLETE );
-        }, 300);
+    function SetupListeners() {
+        const m = cc.eventManager;
+        m.addCustomListener(ReelsEvents.RANDOM_SPIN_COMPLETED,        Handle_RandomSpinComplete );
+        m.addCustomListener(ReelsEvents.COMBINATION_SPIN_COMPLETED,   Handle_CombinationSpinComplete );
+    }
+
+    function Handle_CombinationSpinComplete() {
+        _that.sendNotification( ReelsCommands.COMBINATION_SPIN_COMPLETE );
+    }
+
+    function Handle_RandomSpinComplete(e) {
+        _that.sendNotification( ReelsCommands.RANDOM_SPIN_COMPLETE, e.getUserData() );
     }
 })();

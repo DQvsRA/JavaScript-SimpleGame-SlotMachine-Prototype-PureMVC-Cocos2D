@@ -5,9 +5,9 @@
 	</game>
 	<reels count="4"
 		   items="3"
-		   speed="500"
+		   deltaY="10"
 		   spintime="3"
-		   timespread="1"
+		   timespread="2"
 	>
 		<item type="apple"/>
 		<item type="banana"/>

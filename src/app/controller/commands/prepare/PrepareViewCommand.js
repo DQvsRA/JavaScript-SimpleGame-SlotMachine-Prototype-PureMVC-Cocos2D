@@ -28,16 +28,6 @@ puremvc.define
 
             cc.spriteFrameCache.addSpriteFrames(res.Items_SpriteSheet_plist);
 
-            SpritesNames.ALL = [
-                SpritesNames.APPLE,
-                SpritesNames.BANANA,
-                SpritesNames.BELL,
-                SpritesNames.CHERRY,
-                SpritesNames.LEMON,
-                SpritesNames.ORIGIN,
-                SpritesNames.PURPLE
-            ];
-
             var size = cc.winSize;
             var background = new cc.DrawNode();
             background.drawRect(

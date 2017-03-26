@@ -4,7 +4,7 @@
 puremvc.define
 (
     {
-        name: "app.model.vo.ApplicationVO"
+        name: "app.model.vos.ApplicationVO"
     ,   parent: Object
     ,   constructor: function ApplicationVO() {
 

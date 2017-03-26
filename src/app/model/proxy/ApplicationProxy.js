@@ -11,10 +11,12 @@
         // CLASS INFO
         {
             name: 'app.model.proxy.ApplicationProxy',
-            //parent: app.model.proxy.BaseProxy,
             parent: puremvc.Proxy,
-            constructor: function PagesProxy() {
-                puremvc.Proxy.prototype.constructor.call(this, app.model.proxy.ApplicationProxy.NAME, new app.model.vo.ApplicationVO());
+            constructor: function ApplicationProxy() {
+                puremvc.Proxy.prototype.constructor.call(this,
+                    app.model.proxy.ApplicationProxy.NAME,
+                    new app.model.vos.ApplicationVO()
+                );
             }
         },
 

@@ -39,7 +39,7 @@
             /** @override */
             handleNotification: function (note) {
                 var name = note.getName();
-                console.log("> HeaderMediator -> Notification: ", note);
+                trace(note);
                 switch (name) {
                     case HeaderNotification.SET_SCORE: 				_header.setScore( note.getBody() ); 		break;
                     case HeaderNotification.SET_GAMES: 		        _header.setGames( note.getBody() ); 	break;

@@ -21,8 +21,9 @@ puremvc.define
             var proxies = app.model.proxy;
             console.log("> PureMVC -> Startup - Prepare: Model");
             this.facade.registerProxy( new proxies.ApplicationProxy() );
-            this.facade.registerProxy( new proxies.UserProxy() );
+            this.facade.registerProxy( new proxies.CombinationsProxy() );
             this.facade.registerProxy( new proxies.GameProxy() );
+            this.facade.registerProxy( new proxies.UserProxy() );
         }
     }
 );

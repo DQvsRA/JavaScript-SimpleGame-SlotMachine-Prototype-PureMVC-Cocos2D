@@ -40,6 +40,9 @@
         "src/app/controller/commands/prepare/PrepareViewCommand.js",
         "src/app/controller/commands/prepare/PrepareCompleteCommand.js",
         "src/app/controller/commands/reels/SetupReelsCommand.js",
+        "src/app/controller/commands/reels/StartSpinningCommand.js",
+        "src/app/controller/commands/reels/RandomSpinCompleteCommand.js",
+        "src/app/controller/commands/reels/CombinationSpinCompleteCommand.js",
         "src/app/controller/commands/game/StartGameCommand.js",
         "src/app/controller/commands/game/GameCompleteCommand.js",
 
@@ -53,6 +56,7 @@
         "src/app/view/components/Reels.js",
 
         "src/app/model/proxy/ApplicationProxy.js",
+        "src/app/model/proxy/CombinationsProxy.js",
         "src/app/model/proxy/UserProxy.js",
         "src/app/model/proxy/GameProxy.js",
 

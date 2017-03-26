@@ -40,7 +40,7 @@
             /** @override */
             handleNotification: function (note) {
                 var name = note.getName();
-                console.log("> FooterMediator -> Notification: ", note);
+                trace(note);
                 switch (name) {
                     case FooterNotification.UNLOCK: _footer.unlock(); break;
                     case FooterNotification.LOCK:   _footer.lock(); break;

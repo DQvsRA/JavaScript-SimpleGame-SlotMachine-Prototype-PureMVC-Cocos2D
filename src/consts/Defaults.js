@@ -5,6 +5,7 @@ window.Defaults = {
     REELS_COUNT         : 3,
     REEL_SPEED          : 500,
     ITEMS_COUNT         : 3,
+    ITEMS_DELTA_Y       : 10,
     SPIN_TIME           : 3,
     SPIN_TIME_SPREAD    : 3,
 

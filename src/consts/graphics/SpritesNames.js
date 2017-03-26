@@ -10,3 +10,13 @@ window.SpritesNames = {
     ORIGIN   : "origin.png",
     PURPLE   : "purple.png"
 };
+
+SpritesNames.ALL = [
+    SpritesNames.APPLE,
+    SpritesNames.BANANA,
+    SpritesNames.BELL,
+    SpritesNames.CHERRY,
+    SpritesNames.LEMON,
+    SpritesNames.ORIGIN,
+    SpritesNames.PURPLE
+];
