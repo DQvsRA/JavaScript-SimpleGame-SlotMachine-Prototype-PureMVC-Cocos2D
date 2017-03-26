@@ -36,6 +36,9 @@
                 });
                 _currentGameCombination = possibleCOmbinations[Math.floor(possibleCOmbinations.length * Math.random())];
             },
+            getCombinations:function () {
+                return [].slice.call(_currentGameCombination.getElementsByTagName("reel"), 0)
+            },
             getCombinationForReel : function(index) {
                 var reelCombination = _currentGameCombination.getElementsByTagName("reel")[index];
                 return reelCombination.textContent.split(",");

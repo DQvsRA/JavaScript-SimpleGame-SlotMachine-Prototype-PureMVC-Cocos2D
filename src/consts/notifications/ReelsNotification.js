@@ -7,5 +7,6 @@ window.ReelsNotification =
 ,	RESET		:"reels_notification_reset"
 ,	SHUFFLE		:"reels_notification_shuffle"
 
-,	SPIN_REEL_TO_COMBINATION		:"reels_notification_spin_reel_to_combination"
+,	SPIN_REEL_TO_COMBINATION	:"reels_notification_spin_reel_to_combination"
+,	SPIN_TO_COMBINATION		    :"reels_notification_spin_to_combination"
 };

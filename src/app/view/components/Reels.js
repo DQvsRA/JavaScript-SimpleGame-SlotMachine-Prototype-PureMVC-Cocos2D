@@ -56,8 +56,11 @@ var Reels = null;
 
             return true;
         },
-        spinReelToCombination:function(combination, reelIndex){
+        spinReelToCombination:function(combination, reelIndex)
+        {
+            trace("spinReelToCombination", combination, reelIndex);
             var spinner = _spinners[reelIndex];
+            trace("spinReelToCombination", _spinners);
             var childrenCount = spinner.getChildrenCount();
             var spinnerHeight = childrenCount * _itemHeight;
             var time = spinnerHeight / spinner.speed;
@@ -98,6 +101,7 @@ var Reels = null;
                     }
                 }
             }();
+            return action;
         },
         spin:function(spinTime, timeSpread){
             _spinners.map(function(spinner)
@@ -146,6 +150,64 @@ var Reels = null;
                     }
                 }();
             });
+        },
+        spinToCombinationWithRandom:function (
+            spinTime,
+            timeSpread,
+            combinations
+        ) {
+            trace("combinations", combinations);
+            const spinToComb = this.spinReelToCombination;
+            const that = this;
+            _spinners.map(function(spinner)
+            {
+                const reelIndex = spinner.getTag();
+                const reelCombination = combinations[reelIndex].innerHTML;
+                const finalCombination = reelCombination.split(",");
+                var deltaTime = Math.random() * timeSpread * 2 - timeSpread;
+                var time = Math.ceil(spinTime + deltaTime);
+                var yPos = spinner.y - _viewport.height * (spinTime + timeSpread);
+                var position = cc.p(spinner.x, yPos);
+                var tween = cc.moveTo(time, position);
+                spinner.speed = Math.abs(yPos) / time;
+                var seq = cc.sequence(
+                    tween,
+                    cc.callFunc(function(){
+                        spinToComb(finalCombination, reelIndex)
+                    }, that)
+                );
+
+                spinner.runAction(seq);
+
+                tween.update = function(){
+                    var currentItem = 0;
+                    var child = null;
+                    var rndIndex = 0;
+                    var currentPos = 0;
+                    var reelItems = spinner.getChildrenCount();
+                    var alwaysVisible = reelItems - 1;
+
+                    return function (p) {
+                        currentPos = yPos * p;
+                        if(Math.floor(-currentPos / _itemHeight) > currentItem)
+                        {
+                            rndIndex = Math.floor(ALL_COUNT * Math.random());
+                            child = spinner.getChildByTag(currentItem % reelItems);
+                            child.setSpriteFrame(ALL_SPRITES[rndIndex]);
+                            currentItem++;
+                            spinner.removeChild(child);
+                            child.y = (currentItem + alwaysVisible) * _itemHeight;
+                            spinner.addChild(child);
+                        }
+
+                        spinner.y = currentPos;
+
+                        if(p === 1) {
+                            ClearSpinnerPosition(spinner);
+                        }
+                    }
+                }();
+            })
         },
         setup: function(reelsCount, itemsCount, deltaY)
         {

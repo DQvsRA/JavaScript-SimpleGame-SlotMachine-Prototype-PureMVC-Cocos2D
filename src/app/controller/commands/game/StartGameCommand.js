@@ -31,7 +31,8 @@
 
                 this.sendNotification( FooterNotification.LOCK );
                 // this.sendNotification( ReelsNotification.SPIN, gameProxy.spinTime(), gameProxy.spinTimeSpread() );
-                this.sendNotification( ReelsNotification.SPIN );
+                // this.sendNotification( ReelsNotification.SPIN );
+                this.sendNotification( ReelsNotification.SPIN_TO_COMBINATION );
             }
         }
     );

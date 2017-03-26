@@ -35,6 +35,7 @@
                 ,	ReelsNotification.RESET
                 ,	ReelsNotification.SHUFFLE
                 ,	ReelsNotification.SPIN_REEL_TO_COMBINATION
+                ,	ReelsNotification.SPIN_TO_COMBINATION
                 ];
             },
 
@@ -44,9 +45,8 @@
                 const name = note.getName();
                 switch (name) {
                     case ReelsNotification.SPIN_REEL_TO_COMBINATION: _reels.spinReelToCombination(note.getBody(), parseInt(note.getType())); break;
-                    case ReelsNotification.SPIN: this.sendNotification( ReelsCommands.START_SPINNING, _reels );
-                        //_reels.spin(parseInt(note.getBody()), parseInt(note.getType()));
-                    break;
+                    case ReelsNotification.SPIN_TO_COMBINATION: this.sendNotification( ReelsCommands.START_SPINNING, _reels, true ); break;
+                    case ReelsNotification.SPIN: this.sendNotification( ReelsCommands.START_SPINNING, _reels ); break;
                 }
             },
 

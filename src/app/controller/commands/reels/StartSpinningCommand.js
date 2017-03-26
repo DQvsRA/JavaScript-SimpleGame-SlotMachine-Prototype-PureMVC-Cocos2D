@@ -20,8 +20,18 @@
                 console.log("> \t\t\t| Start Spinning Command ");
                 const gameProxy = this.facade.retrieveProxy(app.model.proxy.GameProxy.NAME);
                 const reels = note.getBody();
+                const toCombination = Boolean(note.getType());
 
-                reels.spin(gameProxy.spinTime(), gameProxy.spinTimeSpread());
+                if(toCombination) {
+                    const combinationProxy = this.facade.retrieveProxy(app.model.proxy.CombinationsProxy.NAME);
+                    reels.spinToCombinationWithRandom(
+                        gameProxy.spinTime(),
+                        gameProxy.spinTimeSpread(),
+                        combinationProxy.getCombinations()
+                    )
+                } else {
+                    reels.spin(gameProxy.spinTime(), gameProxy.spinTimeSpread());
+                }
             }
         }
     );
