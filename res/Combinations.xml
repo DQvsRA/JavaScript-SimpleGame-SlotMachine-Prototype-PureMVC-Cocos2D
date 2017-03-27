@@ -63,8 +63,32 @@
     <combination reels="5" items="4">
         <reel>6,6,6,2</reel>
         <reel>1,1,1,2</reel>
-        <reel>5,5,5,2</reel>
+        <reel>5,5,5,3</reel>
         <reel>4,4,4,2</reel>
         <reel>5,5,5,2</reel>
+    </combination>
+    <combination reels="8" items="8">
+        <reel>6,6,6,2,6,6,6,2</reel>
+        <reel>1,1,1,2,1,1,1,2</reel>
+        <reel>5,5,5,3,1,1,1,2</reel>
+        <reel>4,4,4,2,1,1,1,2</reel>
+        <reel>5,5,5,2,5,5,5,2</reel>
+        <reel>5,5,5,2,5,5,5,2</reel>
+        <reel>5,5,5,2,5,5,5,2</reel>
+        <reel>5,5,5,2,5,5,5,2</reel>
+    </combination>
+    <combination reels="12" items="12">
+        <reel>6,6,6,2,6,6,6,2,6,6,6,2</reel>
+        <reel>1,1,1,2,1,1,1,2,6,6,6,2</reel>
+        <reel>5,5,5,3,1,1,1,2,6,6,6,2</reel>
+        <reel>4,4,4,2,1,1,1,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
+        <reel>5,5,5,2,5,5,5,2,6,6,6,2</reel>
     </combination>
 </data>

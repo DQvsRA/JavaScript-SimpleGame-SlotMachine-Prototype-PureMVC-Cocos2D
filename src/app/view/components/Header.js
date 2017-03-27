@@ -10,11 +10,11 @@ var Header = null;
     const TF_FONT_FONT = "Arial";
     const TF_FONT_WIDTH = 144;
     const TF_FONT_MARGIN_X = 96;
-    const TF_FONT_CLR_SCORE = ColorUtils.hexToRgb("232323");
+    const TF_FONT_CLR_SCORE = ColorUtils.hexToRgb("454545");
     const TF_FONT_CLR_GAMES = ColorUtils.hexToRgb("ffffff");
 
     const HEADER_HEIGHT = Defaults.HEADER_HEIGHT;
-    const HEADER_COLOR = ColorUtils.hexToRgb("323232");
+    const HEADER_COLOR = ColorUtils.hexToRgb("121212");
 
     Header = cc.Layer.extend({
         sprite: null,

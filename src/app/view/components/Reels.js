@@ -37,18 +37,18 @@ var Reels = null;
 
             _viewport = new cc.Rect(0, 0, size.width, size.height - Defaults.FOOTER_HEIGHT - Defaults.HEADER_HEIGHT);
 
-            var background = new cc.DrawNode();
-            background.drawRect(
-                cc.p(_viewport.width, -_viewport.height),
-                cc.p(0, _viewport.height * 0.5),
-                cc.color.apply(null, ColorUtils.hexToRgb("ffcc00")),
-                0
-            );
+            // var background = new cc.DrawNode();
+            // background.drawRect(
+            //     cc.p(_viewport.width, -_viewport.height),
+            //     cc.p(0, _viewport.height * 0.5),
+            //     cc.color.apply(null, ColorUtils.hexToRgb("ffcc00")),
+            //     0
+            // );
 
             _spriteCache = cc.spriteFrameCache;
             _createSprite = cc.Sprite.create;
 
-            this.addChild(background, 0);
+            // this.addChild(background, 0);
 
             this.setAnchorPoint(cc.p(0,0));
             this.x = 0;
@@ -65,7 +65,7 @@ var Reels = null;
                 const finalCombination = reelCombination.split(",");
 
                 var deltaTime = Math.random() * timeSpread * 2 - timeSpread;
-                var time = Math.ceil(spinTime + deltaTime);
+                var time = Math.ceil(spinTime + deltaTime) || spinTime;
                 var yPos = spinner.y - _viewport.height * (spinTime + timeSpread);
                 var position = cc.p(spinner.x, yPos);
                 var tween = cc.moveTo(time, position)
@@ -114,157 +114,6 @@ var Reels = null;
                     }
                 }();
             });
-        },
-        spinReelToCombination:function(combination, reelIndex)
-        {
-            trace("spinReelToCombination", combination, reelIndex);
-            var spinner = _spinners[reelIndex];
-            trace("spinReelToCombination", _spinners);
-            var childrenCount = spinner.getChildrenCount();
-            var spinnerHeight = childrenCount * _itemHeight;
-            var time = spinnerHeight / spinner.speed;
-            var yPos = spinner.y - spinnerHeight;
-            var position = cc.p(spinner.x, yPos);
-            var tween = cc.moveTo(time, position);
-            var action = spinner.runAction(tween);
-
-            trace("combination", combination, time);
-            combination.push(Math.floor(ALL_SPRITES.length * Math.random()));
-
-            spinnerHeight += _deltaYBetweenItemsInReel;
-            combination.map(function (itemIndex) {
-                var name = ALL_SPRITES[itemIndex];
-                var frame = _spriteCache.getSpriteFrame(name);
-                var finalItem = new _createSprite(frame);
-                finalItem.setAnchorPoint(cc.p(0.5, 0));
-                finalItem.setScale(_itemProportion, _itemProportion);
-                finalItem.x = 0;
-                finalItem.y = spinnerHeight;
-                spinnerHeight += _itemHeight;
-                spinner.addChild(finalItem);
-            });
-
-            action.update = function(){
-                var currentPos = 0;
-                return function (p) {
-                    currentPos = yPos * p;
-                    spinner.y = currentPos;
-                    if(p === 1) {
-                        while(childrenCount--) {
-                            spinner.removeChildByTag(childrenCount);
-                        }
-                        ClearSpinnerPosition(spinner);
-                        cc.eventManager.dispatchCustomEvent(
-                            ReelsEvents.COMBINATION_SPIN_COMPLETED
-                        );
-                    }
-                }
-            }();
-            return action;
-        },
-        spin:function(spinTime, timeSpread)
-        {
-            _spinners.map(function(spinner)
-            {
-                var deltaTime = Math.random() * timeSpread * 2 - timeSpread;
-                var time = Math.ceil(spinTime + deltaTime);
-                var yPos = spinner.y - _viewport.height * (spinTime + timeSpread);
-                var position = cc.p(spinner.x, yPos);
-                var tween = cc.moveTo(time, position);
-
-                spinner.speed = Math.abs(yPos) / time;
-
-                trace(spinner.getTag(),  spinner.speed);
-
-                var action = spinner.runAction(tween);
-                action.update = function(){
-                    var currentItem = 0;
-                    var child = null;
-                    var rndIndex = 0;
-                    var currentPos = 0;
-                    var reelItems = spinner.getChildrenCount();
-                    var alwaysVisible = reelItems - 1;
-
-                    return function (p) {
-                        currentPos = yPos * p;
-                        if(Math.floor(-currentPos / _itemHeight) > currentItem)
-                        {
-                            rndIndex = Math.floor(ALL_COUNT * Math.random());
-                            child = spinner.getChildByTag(currentItem % reelItems);
-                            child.setSpriteFrame(ALL_SPRITES[rndIndex]);
-                            currentItem++;
-                            spinner.removeChild(child);
-                            child.y = (currentItem + alwaysVisible) * _itemHeight;
-                            spinner.addChild(child);
-                        }
-
-                        spinner.y = currentPos;
-
-                        if(p === 1) {
-                            ClearSpinnerPosition(spinner);
-                            cc.eventManager.dispatchCustomEvent(
-                                ReelsEvents.RANDOM_SPIN_COMPLETED,
-                                spinner.getTag()
-                            );
-                        }
-                    }
-                }();
-            });
-        },
-        spinToCombinationWithRandom:function (spinTime, timeSpread, combinations)
-        {
-            trace("combinations", combinations);
-            const spinToComb = this.spinReelToCombination;
-            const that = this;
-            _spinners.map(function(spinner)
-            {
-                const reelIndex = spinner.getTag();
-                const reelCombination = combinations[reelIndex].innerHTML;
-                const finalCombination = reelCombination.split(",");
-                var deltaTime = Math.random() * timeSpread * 2 - timeSpread;
-                var time = Math.ceil(spinTime + deltaTime);
-                var yPos = spinner.y - _viewport.height * (spinTime + timeSpread);
-                var position = cc.p(spinner.x, yPos);
-                var tween = cc.moveTo(time, position);
-                spinner.speed = Math.abs(yPos) / time;
-                var seq = cc.sequence(
-                    tween,
-                    cc.callFunc(function(){
-                        spinToComb(finalCombination, reelIndex)
-                    }, that)
-                );
-
-                spinner.runAction(seq);
-
-                tween.update = function(){
-                    var currentItem = 0;
-                    var child = null;
-                    var rndIndex = 0;
-                    var currentPos = 0;
-                    var reelItems = spinner.getChildrenCount();
-                    var alwaysVisible = reelItems - 1;
-
-                    return function (p) {
-                        currentPos = yPos * p;
-                        if(Math.floor(-currentPos / _itemHeight) > currentItem)
-                        {
-                            rndIndex = Math.floor(ALL_COUNT * Math.random());
-                            child = spinner.getChildByTag(currentItem % reelItems);
-                            child.setSpriteFrame(ALL_SPRITES[rndIndex]);
-                            currentItem++;
-                            spinner.removeChild(child);
-                            child.y = (currentItem + alwaysVisible) * _itemHeight;
-                            spinner.addChild(child);
-                        }
-
-                        spinner.y = currentPos;
-
-                        if(p === 1) {
-                            ClearSpinnerPosition(spinner);
-                        }
-                    }
-                }();
-            })
         },
         setup: function(reelsCount, itemsCount, deltaY)
         {
@@ -319,4 +168,3 @@ var Reels = null;
         }
     });
 })();
-

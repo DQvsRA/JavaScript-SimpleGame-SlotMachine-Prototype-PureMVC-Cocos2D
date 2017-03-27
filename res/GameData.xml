@@ -3,10 +3,10 @@
 	<combinations></combinations>
 	<game data-cost="10">
 	</game>
-	<reels count="5"
+	<reels count="4"
 		   items="3"
 		   deltaY="10"
-		   spintime="3"
+		   spintime="0"
 		   timespread="2"
 	>
 		<item type="apple"/>

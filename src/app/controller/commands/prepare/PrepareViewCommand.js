@@ -29,14 +29,14 @@ puremvc.define
             cc.spriteFrameCache.addSpriteFrames(res.Items_SpriteSheet_plist);
 
             var size = cc.winSize;
-            var background = new cc.DrawNode();
-            background.drawRect(
-                cc.p(0, 0),
-                cc.p(size.width, size.height),
-                cc.color.apply(null, ColorUtils.hexToRgb("acacaca")),
-                0
-            );
-            stage.addChild(background);
+            // var background = new cc.DrawNode();
+            // background.drawRect(
+            //     cc.p(0, 0),
+            //     cc.p(size.width, size.height),
+            //     cc.color.apply(null, ColorUtils.hexToRgb("acacaca")),
+            //     0
+            // );
+            // stage.addChild(background);
             stage.onEnter = function () { };
 
             this.facade.registerMediator( new mediators.ApplicationMediator(stage) );
