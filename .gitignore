@@ -1,2 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
-frameworks
+frameworks/cocos2d-html5
+frameworks/cocos2d-x
+frameworks/runtime-src
